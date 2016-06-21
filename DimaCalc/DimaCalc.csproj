@@ -70,6 +70,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator.cs" />
+    <Compile Include="Operations\BinaryOperation.cs" />
+    <Compile Include="Operations\ConstantOperation.cs" />
+    <Compile Include="Operations\NegateOperation.cs" />
+    <Compile Include="Operations\Operation.cs" />
+    <Compile Include="Parser\ExpressionChunk.cs" />
+    <Compile Include="Parser\OperationBuilder.cs" />
+    <Compile Include="Parser\Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +101,7 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
