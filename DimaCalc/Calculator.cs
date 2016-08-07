@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DimaCalc.Operations;
+using DimaCalc.Parser;
 
 namespace DimaCalc
 {
     class Calculator
     {
-        public static string Run()
+        public static string Run(string question)
         {
-            var problem =
-                new BinaryOperation(
-                    new BinaryOperation(new ConstantOperation(12.3), new NegateOperation(new ConstantOperation(11.3)), MathOperations.Add),
-                    new BinaryOperation(new ConstantOperation(10), new ConstantOperation(8), MathOperations.Subtract),
-                    MathOperations.Multiply);
-            var result = problem.Calculate();
-            return string.Format("{0} = {1}", problem, result);
+            var parser = new ParserEngine();
+            var builder = new OperationBuilder();
+
+            try
+            {
+                var problem = builder.Build(parser.Parse(question));
+                var result = problem.Calculate();
+                return string.Format("{0} = {1}", problem, result);
+            }
+            catch(Exception ex)
+            {
+                return ex.ToString();
+            }
         }
 
     }

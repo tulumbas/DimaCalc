@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DimaCalc.Operations
 {
-    class BinaryOperation : Operation
+    public class BinaryOperation : Operation
     {
         public MathOperations Operand { get; private set; }
         public Operation Left { get; private set; }
@@ -40,10 +40,10 @@ namespace DimaCalc.Operations
                         break;
 
                     case MathOperations.Divide:
-                        if (r == 0.0)
-                        {
-                            throw new DivideByZeroException("Ы! (divide by zero)");
-                        }
+                        //if (Math.Abs(r) < Double.MinValue)
+                        //{
+                        //    throw new DivideByZeroException("Ы! (divide by zero)");
+                        //}
                         res = l / r;
                         break;
 
@@ -51,6 +51,10 @@ namespace DimaCalc.Operations
                         res = l * r;
                         break;
 
+                    case MathOperations.Power:
+                        res = Math.Exp(r * Math.Log(l));
+                        break;
+                    
                     default:
                         throw new ApplicationException("Unknown binary operation");
                 }
@@ -59,7 +63,7 @@ namespace DimaCalc.Operations
             }
             else
             {
-                return this;
+                return new BinaryOperation(op1, op2, Operand);
             }
 
         }
@@ -82,11 +86,5 @@ namespace DimaCalc.Operations
         }
     }
 
-    enum MathOperations
-    {
-        Add,
-        Subtract,
-        Divide,
-        Multiply
-    };
+
 }

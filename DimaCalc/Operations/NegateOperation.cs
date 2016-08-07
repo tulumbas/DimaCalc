@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DimaCalc.Operations
 {
-    class NegateOperation : Operation
+    public class NegateOperation : Operation
     {
         Operation _child;
 
@@ -23,7 +23,7 @@ namespace DimaCalc.Operations
             }
             else
             {
-                return this;
+                return new NegateOperation(res);
             }
         }
 

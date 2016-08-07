@@ -29,10 +29,19 @@ namespace DimaCalc.Parser
     public enum ChunkTypes
     {
         Number,
-        OperationChar,
+        Plus,
+        Minus,
+        Multiply,
+        Divide,
+        Equals,
         ParenthesisLeft,
         ParenthesisRight,
-        EOL
+        EOL,
+        Assign,
+        Greater,
+        GreaterOrEqual,
+        Less,
+        LessOrEqual
     }
 
 }

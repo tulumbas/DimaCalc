@@ -26,7 +26,7 @@ namespace DimaCalc
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            textBox1.Text = Calculator.Run();
+            textBox1.Text = Calculator.Run(textBox1.Text);
         }
     }
 }

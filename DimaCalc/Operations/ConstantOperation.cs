@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DimaCalc.Operations
 {
-    class ConstantOperation : Operation
+    public class ConstantOperation : Operation
     {
         public double Value { get; private set; }
 
